@@ -9,6 +9,7 @@ public class TestRun {
         ApplicationContext context=new AnnotationConfigApplicationContext(Config.class);
         Human human = context.getBean("human", Human.class);
         human.test();
+        context.getBean("heart",Heart.class).pump();
 
     }
 }

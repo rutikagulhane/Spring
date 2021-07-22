@@ -9,16 +9,26 @@ import javax.annotation.PreDestroy;
 @Component
 public class Game {
 
-
+    @Autowired
+    @Qualifier("redSox")
     private ITeam home;
 
 
-
+@Autowired
+@Qualifier("whiteSox")
     private ITeam away;
 
-@Autowired
-    public Game(@Qualifier("redSox") ITeam home,@Qualifier("whiteSox") ITeam away) {
+//
+//    public Game(ITeam home, ITeam away) {
+//        this.home = home;
+//        this.away = away;
+//    }
+
+    public void setHome(ITeam home) {
         this.home = home;
+    }
+
+    public void setAway(ITeam away) {
         this.away = away;
     }
 

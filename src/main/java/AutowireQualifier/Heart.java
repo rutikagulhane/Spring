@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Heart implements IOrgan {
 
-    @Value("${red}")
+    @Value("#{T(AutowireQualifier.ColourProvider).colour().toLowerCase()}")
     private String colour;
 
     public String getColour() {
@@ -20,6 +20,7 @@ public class Heart implements IOrgan {
     public void pump()
     {
         System.out.println("Heart is pumping");
+        System.out.println("colour is "+colour);
 
     }
 

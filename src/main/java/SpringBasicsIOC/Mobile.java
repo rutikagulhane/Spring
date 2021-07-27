@@ -5,8 +5,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component
-@Scope("prototype")
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+@Component("mobile")
+//@Scope("prototype")//singleton
 public class Mobile {
     @Autowired
     @Qualifier("airtel")
@@ -34,4 +37,16 @@ public class Mobile {
     {
         return Math.random()*5>10?sim2:sim1;
     }
+
+    @PostConstruct
+    public void init_method()
+    {
+        System.out.println("this is the init method");
+    }
+    @PreDestroy
+    public void destroy_method()
+    {
+        System.out.println("this is the destroy method");
+    }
+
 }
